@@ -60,3 +60,45 @@ SELECT
   Semester2, 
   EXP(MarkGrowth) 
 FROM Students;	
+
+-- Fungsi Text - CONCAT( )
+SELECT 
+  studentid, 
+  CONCAT(firstname, lastname) as Name, 
+  Semester1, 
+  Semester2, 
+  markGrowth 
+FROM students;
+
+-- Fungsi Text - SUBSTRING_INDEX( )
+SELECT 
+  studentid, 
+  SUBSTRING_INDEX(email,'@',1) as Name 
+FROM students;
+
+-- Fungsi Text - SUBSTR( )
+SELECT 
+  studentid, 
+  SUBSTR(firstname,2,3) as Initial 
+FROM students;	
+
+-- Fungsi Text - LENGTH( )
+SELECT 
+  studentid, 
+  firstname, 
+  LENGTH(firstname) as Total_Char 
+FROM students;		
+
+-- Fungsi Text - REPLACE( )
+SELECT 
+  studentid, 
+  email, 
+  REPLACE(email,'yahoo', 'gmail') as New_Email 
+FROM students;
+
+-- Tugas Praktek (Fungsi Teks di SQL)
+SELECT 
+  studentid, 
+  UPPER(firstname) as FirstName, 
+  LOWER(lastname) as Lastname 
+FROM students;
