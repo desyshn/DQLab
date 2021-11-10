@@ -102,3 +102,71 @@ SELECT
   UPPER(firstname) as FirstName, 
   LOWER(lastname) as Lastname 
 FROM students;
+
+-- Fungsi Aggregate - SUM()
+SELECT 
+  SUM(semester1) AS Total_1, 
+  SUM(Semester2) as Total_2 
+FROM Students;	
+
+-- Fungsi Aggregate - COUNT()
+SELECT
+  COUNT(firstname) AS Total_student 
+FROM students;	
+
+-- Fungsi Aggregate - AVG( )
+SELECT 
+  AVG(semester1) AS AVG_1, 
+  AVG(semester2) AS AVG_2 
+FROM students;	
+
+-- Tugas Praktek 1 - Fungsi Aggregate dan Group By
+SELECT 
+  MIN(semester1) AS Min1, 
+  MAX(semester1) AS Max1, 
+  MIN(semester2) AS Min2, 
+  MAX(Semester2) AS Max2 
+FROM Students;
+
+-- Group by Single Column
+SELECT 
+  province, 
+  COUNT(DISTINCT order_id) AS total_order, 
+  SUM(item_price) AS total_price 
+FROM sales_retail_2019 
+GROUP BY province;
+
+-- Group by Multiple Column
+SELECT 
+  province, 
+  brand, 
+  COUNT(DISTINCT order_id) AS total_order, 
+  SUM(item_price) AS total_price 
+FROM sales_retail_2019 
+GROUP BY province, brand;
+
+-- Fungsi Aggregate dengan Grouping
+SELECT 
+  province, 
+  COUNT(DISTINCR order_id) AS total_unique_order, 
+  SUM(item_price) AS revenue 
+FROM sales_retail_2019 
+GROUP BY province;	
+
+-- Tugas Praktek 2 - Fungsi Aggregate dan Group By
+SELECT 
+  MONTH(order_date) AS order_month, 
+  SUM(item_price) AS total_price, 
+CASE  
+    WHEN 
+      SUM(item_price) >= 30000000000 
+    THEN 'Target Achieved'
+    WHEN 
+      SUM(item_price) <= 25000000000 
+    THEN 'Less Performed'
+    ELSE 'Follow Up'
+END AS remark
+FROM 
+  sales_retail_2019
+GROUP BY 
+  MONTH(order_date);
