@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 ##[Python “Hello World” & Statement]
 print("Hello World.")
 print("Saya Aksara, baru belajar Python.")
